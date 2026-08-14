@@ -116,7 +116,7 @@ Build now proceeds autonomously through the brief's 12-phase dev order. One phas
 | 9 | SEO (schema, OG, sitemap, robots, canonicals) | ✔ DONE | JSON-LD: Organization, LocalBusiness, Service, BreadcrumbList, FAQPage — verified in HTML. sitemap.xml + robots.txt live. Canonicals on all dynamic pages. |
 | 10 | Performance (90+ Lighthouse) | IN PROGRESS | R1: A11y 96, BP 100, SEO 100, Perf 50. Fix: CSS-only reveals, server components, hydration cut. R2 auditing. |
 | 11 | Mobile QA (375x812, 390x844, 430x932, 768x1024, 1440x900) | ⏳ | |
-| 12 | Deployment (Vercel) | ⏳ | Needs Wellington: GitHub repo + Vercel link |
+| 12 | Deployment (Vercel) | IN PROGRESS | Code on GitHub main (bb4541e+). First Vercel build cloned the pre-push snapshot (2999826) — fresh push triggers correct build. |
 
 ---
 
