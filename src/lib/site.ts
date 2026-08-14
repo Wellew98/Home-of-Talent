@@ -4,13 +4,35 @@
  * Update these values when Wellington supplies real details.
  */
 
+/**
+ * Canonical origin, used for metadataBase, sitemap.xml, robots.txt and all
+ * JSON-LD urls. Resolved in priority order so canonicals always point at a
+ * domain that actually resolves:
+ *
+ *   1. NEXT_PUBLIC_SITE_URL — explicit override, set this to force a domain.
+ *   2. VERCEL_PROJECT_PRODUCTION_URL — injected by Vercel. Always the
+ *      PRODUCTION domain (never the per-deploy preview URL), and switches to
+ *      the custom domain by itself once one is attached to the project, so
+ *      going live on homeoftalent.co.za needs no code change.
+ *   3. localhost — local dev only.
+ *
+ * Every consumer of site.url is a server component, route handler or metadata
+ * export, so non-NEXT_PUBLIC_ vars are readable here.
+ */
+const resolvedUrl = (
+  process.env.NEXT_PUBLIC_SITE_URL ??
+  (process.env.VERCEL_PROJECT_PRODUCTION_URL
+    ? `https://${process.env.VERCEL_PROJECT_PRODUCTION_URL}`
+    : "http://localhost:3000")
+).replace(/\/+$/, "");
+
 export const site = {
   name: "Home of Talent",
   legalName: "Home of Talent Construction Company",
   tagline: "Professional home improvement and handyman services in Johannesburg.",
   description:
     "Home of Talent provides professional home improvement, handyman, repair, renovation, painting and maintenance services across Johannesburg, Gauteng.",
-  url: "https://homeoftalent.co.za", // placeholder — update at deployment
+  url: resolvedUrl, // see resolvedUrl above — env-driven, no longer hardcoded
   // Contact details (WhatsApp/phone confirmed by Wellington 2026-08-14)
   phoneDisplay: "083 745 0681", // display format
   phoneTel: "+27837450681",
