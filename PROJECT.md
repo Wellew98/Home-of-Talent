@@ -135,11 +135,12 @@ File: master brief.md (1,328 lines, ChatGPT-authored, Wellington-approved).
 The anti-pattern we avoid: yellow "CLICK ME TO CALL" box, cartoon tools illustration, phone-photo galleries, promo-code template, long scrolling homepage. Their strengths worth noting as LOCAL conversion norms (only adopt once business confirms): free site inspection, detailed written quote, 24-48h response commitment, rubble removal, 6-month labour guarantee. Our premium editorial aesthetic differentiates directly against this.
 
 ### Open blockers (need Wellington, don't stall build)
-1. WhatsApp/phone number — every CTA needs it. Placeholder 27800000000 until supplied, kept in ONE config file (brief s.19).
-2. Real project photos + team photos — brief demands clearly-marked placeholders until supplied. Curated editorial Unsplash/Pexels fills v1.
+1. ~~WhatsApp/phone number~~ RESOLVED: 083 745 0681 (wa.me 27837450681), in site.ts.
+2. Real project photos + team photos — brief demands clearly-marked placeholders until supplied. Curated editorial Pexels fills v1 (see IMAGE-SOURCES.md).
 3. GitHub repo + Vercel account linking — Phase 12, Wellington handles signups.
 4. Business facts (NHBRC, insurance, years, team) — placeholder policy applies.
-5. Quote backend: v1 = WhatsApp deep-link delivery of form content; Supabase when Wellington decides (brief s.34).
+5. Email address — hello@homeoftalent.co.za is still a placeholder.
+6. Quote backend: v1 = WhatsApp deep-link delivery of form content; Supabase when Wellington decides (brief s.34).
 
 ---
 
@@ -267,6 +268,6 @@ Clone's pill badges / section rhythm / card anatomy are kept (they're good struc
 - Hero display line: "Your Home. Done Properly." (master brief s.8)
 - Hero subline: "Professional home improvement, repairs and maintenance services across Johannesburg."
 - Positioning: locked in Phase 2
-- Contact number: PLACEHOLDER 27800000000 in site config until Wellington supplies (affects every CTA)
+- Contact number: 083 745 0681 (+27837450681) — WhatsApp + calls. In site.ts (single config).
 - Service line-up: 9 services per master brief s.10 (slugs in brief s.15)
 - Copy rules: no invented facts, no testimonials, no copied clone content. Placeholders clearly marked.

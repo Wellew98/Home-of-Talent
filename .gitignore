@@ -39,3 +39,10 @@ yarn-error.log*
 # typescript
 *.tsbuildinfo
 next-env.d.ts
+
+# local QA artifacts (never deploy)
+.lh*.json
+.lighthouse*.json
+.vercel/
+.lhtmp/
+qa-shots/

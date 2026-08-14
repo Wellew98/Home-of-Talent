@@ -1,0 +1,120 @@
+@import "tailwindcss";
+
+/* ============================================================
+   HOME OF TALENT — DESIGN SYSTEM (master brief s.4-5, s.26)
+   Palette: charcoal #171717 · off-white #F6F4EF · copper #C56A32
+            sage #68745F · ink #202020 · muted #6B6B6B · hairline #E4E1DA
+   ============================================================ */
+
+@theme {
+  /* ---- colours ---- */
+  --color-charcoal: #171717;
+  --color-charcoal-800: #1f1f1f;
+  --color-offwhite: #f6f4ef;
+  --color-tint: #efebe3;
+  --color-copper: #c56a32;
+  --color-copper-dark: #a8522a;
+  --color-sage: #68745f;
+  --color-sage-dark: #57604f;
+  --color-ink: #202020;
+  --color-muted: #6b6b6b;
+  --color-hairline: #e4e1da;
+  --color-ondark: #f6f4ef;
+  --color-ondark-muted: #b3afa6;
+
+  /* ---- fonts (wired to next/font in layout.tsx) ---- */
+  --font-display: var(--font-manrope), ui-sans-serif, system-ui, sans-serif;
+  --font-body: var(--font-inter), ui-sans-serif, system-ui, sans-serif;
+
+  /* ---- radius: brief bans big rounded cards. 2px max on UI, 0 on media ---- */
+  --radius-none: 0px;
+  --radius-2: 2px;
+
+  /* ---- container ---- */
+  --breakpoint-screen: 1440px;
+}
+
+/* ============================================================
+   BASE
+   ============================================================ */
+html {
+  scroll-behavior: smooth;
+}
+
+@layer base {
+  body {
+    background-color: var(--color-offwhite);
+    color: var(--color-ink);
+    font-family: var(--font-body);
+    font-size: 17px;
+    line-height: 1.6;
+    -webkit-font-smoothing: antialiased;
+    text-rendering: optimizeLegibility;
+  }
+
+  h1, h2, h3, h4 {
+    font-family: var(--font-display);
+    font-weight: 800;
+    letter-spacing: -0.03em;
+    line-height: 1.05;
+    color: var(--color-ink);
+    text-wrap: balance;
+  }
+}
+
+/* small uppercase labels (brief s.26) */
+.kicker {
+  font-family: var(--font-body);
+  font-size: 12px;
+  font-weight: 600;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+}
+
+/* selection */
+::selection {
+  background: var(--color-copper);
+  color: #ffffff;
+}
+
+/* focus — visible states (brief s.40) */
+:focus-visible {
+  outline: 2px solid var(--color-copper);
+  outline-offset: 2px;
+}
+
+/* reduced motion (brief s.40) */
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+  *, *::before, *::after {
+    animation-duration: 0.01ms !important;
+    animation-delay: 0ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+  }
+}
+
+/* thin scrollbar for overflow areas, subtle */
+::-webkit-scrollbar { width: 10px; height: 10px; }
+::-webkit-scrollbar-thumb { background: #d5d0c5; border-radius: 0; }
+::-webkit-scrollbar-track { background: transparent; }
+
+/* ============================================================
+   REVEAL — CSS-only fade/slide on load (server-rendered, no JS)
+   ============================================================ */
+@keyframes fade-up {
+  from {
+    opacity: 0;
+    transform: translateY(24px);
+  }
+  to {
+    opacity: 1;
+    transform: none;
+  }
+}
+
+[data-reveal] {
+  animation: fade-up 0.55s cubic-bezier(0.22, 1, 0.36, 1) both;
+}
