@@ -9,6 +9,8 @@ export type Service = {
   shortDescription: string;
   description: string;
   image: StaticImageData;
+  /** true once this service is illustrated with real Home of Talent photos */
+  realPhotos?: boolean;
   features: string[];
   faqs: { q: string; a: string }[];
   seoTitle: string;
@@ -271,6 +273,49 @@ export const services: Service[] = [
     seoTitle: "Smart Home Installation Johannesburg",
     seoDescription:
       "Smart home installation in Johannesburg: locks, cameras, thermostats and leak monitoring, set up properly.",
+  },
+  {
+    slug: "roofing",
+    number: "10",
+    title: "Roofing & Waterproofing",
+    shortTitle: "Roofing",
+    shortDescription:
+      "Trusses, sheeting, tiling, underlay and leak repairs \u2014 roofs built and repaired to take Highveld storms.",
+    description:
+      "A roof takes the worst of the Johannesburg weather. We handle roofing from the timber up \u2014 truss erection, battens and underlay, sheeting and tiling \u2014 as well as the repair work that keeps an existing roof watertight through summer storm season.",
+    image: images.service.roofing,
+    realPhotos: true,
+    features: [
+      "Timber truss erection",
+      "Battens, underlay and sisalation",
+      "IBR and corrugated sheeting",
+      "Concrete and clay tile roofing",
+      "Ridging, flashing and valley detailing",
+      "Leak tracing and roof repairs",
+      "Gutter and downpipe installation",
+      "Roof waterproofing",
+    ],
+    faqs: [
+      {
+        q: "Do you repair existing roofs, or only build new ones?",
+        a: "Both. We put up new roofs from the trusses through to the covering, and we take on repair work on existing roofs \u2014 leak tracing, replacing broken tiles or sheets, redoing flashing and ridging, and re-sealing problem areas.",
+      },
+      {
+        q: "Can you work on both tile and sheet roofs?",
+        a: "Yes. We work with concrete and clay tile as well as IBR and corrugated sheeting, including the underlay, battens and flashing details that go with each.",
+      },
+      {
+        q: "When is the best time to have roof work done in Johannesburg?",
+        a: "Ahead of the summer storm season, if you have the choice. Highveld storms find every weak point in a roof, so the work is far easier and less disruptive done in the dry months than in the middle of a downpour.",
+      },
+      {
+        q: "How do I know whether my roof needs a repair or a re-roof?",
+        a: "Usually it comes down to how widespread the problem is. Isolated leaks around a chimney, valley or flashing are repairs. Sagging, widespread cracked tiles or rusted-through sheeting point to a bigger job. Send us photos and we will tell you honestly which one you are looking at.",
+      },
+    ],
+    seoTitle: "Roofing, Re-Roofing & Roof Repairs Johannesburg",
+    seoDescription:
+      "Roofing services across Johannesburg: timber trusses, IBR sheeting, tile roofing, underlay, flashing, gutters and leak repairs. Get a free quote from Home of Talent.",
   },
 ];
 

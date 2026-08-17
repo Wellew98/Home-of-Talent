@@ -10,6 +10,11 @@ import { services } from "@/data/services";
  * Services grid — 9 cards, 3 columns (master brief s.10).
  */
 export function ServicesGrid() {
+  // Roofing leads as a full-width featured card so the nine brief services
+  // below keep their exact 3x3 grid (master brief s.10).
+  const featured = services.find((s) => s.slug === "roofing");
+  const rest = services.filter((s) => s.slug !== "roofing");
+
   return (
     <section className="bg-offwhite py-24 lg:py-32">
       <Container>
@@ -29,8 +34,14 @@ export function ServicesGrid() {
           </Link>
         </div>
 
+        {featured && (
+          <Reveal className="mt-16">
+            <ServiceCard service={featured} featured />
+          </Reveal>
+        )}
+
         <div className="mt-16 grid gap-x-8 gap-y-16 sm:grid-cols-2 lg:grid-cols-3">
-          {services.map((service, i) => (
+          {rest.map((service, i) => (
             <Reveal key={service.slug} delay={(i % 3) * 0.08}>
               <ServiceCard service={service} />
             </Reveal>

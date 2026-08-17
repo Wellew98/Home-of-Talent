@@ -76,7 +76,11 @@ export function ServicePhotos({
         <SectionHeading
           label="Project photos"
           title="Work in This Category"
-          lead="Example photos from projects like this. Real project galleries are being added."
+          lead={
+            service.realPhotos
+              ? "Photographs from Home of Talent jobs."
+              : "Example photos from projects like this. Real project galleries are being added."
+          }
         />
         <div className="mt-12 grid grid-cols-2 gap-4 lg:gap-6">
           {extras.map((photo, i) => (
