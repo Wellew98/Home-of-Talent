@@ -16,6 +16,9 @@ import projectOutdoor from "@/assets/images/project-outdoor.jpg";
 import projectBathroom from "@/assets/images/project-bathroom.jpg";
 import before from "@/assets/images/before.jpg";
 import after from "@/assets/images/after.jpg";
+import serviceRoofing from "@/assets/images/service-roofing.jpg";
+import roofTrusses from "@/assets/images/roof-trusses.jpg";
+import roofSheeting from "@/assets/images/roof-sheeting.jpg";
 
 /**
  * Build-time optimized images (master brief s.29: WebP/AVIF via next/image).
@@ -38,12 +41,17 @@ export const images = {
     repairs: serviceRepairs,
     seasonal: serviceSeasonal,
     smarthome: serviceSmarthome,
+    roofing: serviceRoofing,
   },
   project: {
     kitchen: projectKitchen,
     painting: projectPainting,
     outdoor: projectOutdoor,
     bathroom: projectBathroom,
+  },
+  roof: {
+    trusses: roofTrusses,
+    sheeting: roofSheeting,
   },
 } as const;
 

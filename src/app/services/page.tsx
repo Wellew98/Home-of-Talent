@@ -12,6 +12,9 @@ export const metadata: Metadata = {
 };
 
 export default function ServicesPage() {
+  const featured = services.find((s) => s.slug === "roofing");
+  const rest = services.filter((s) => s.slug !== "roofing");
+
   return (
     <>
       {/* Hero */}
@@ -26,7 +29,7 @@ export default function ServicesPage() {
               Professional Home Improvement Services
             </h1>
             <p className="mt-5 text-[17px] leading-relaxed text-ondark-muted">
-              Nine service areas across greater Johannesburg — every job handled
+              Ten service areas across greater Johannesburg — every job handled
               properly, from the first message to the final walk-through.
             </p>
           </div>
@@ -36,8 +39,13 @@ export default function ServicesPage() {
       {/* Grid */}
       <section className="bg-offwhite py-20 lg:py-28">
         <Container>
+          {featured && (
+            <div className="mb-16">
+              <ServiceCard service={featured} featured />
+            </div>
+          )}
           <div className="grid gap-x-8 gap-y-16 sm:grid-cols-2 lg:grid-cols-3">
-            {services.map((service) => (
+            {rest.map((service) => (
               <ServiceCard key={service.slug} service={service} />
             ))}
           </div>

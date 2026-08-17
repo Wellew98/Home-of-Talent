@@ -68,6 +68,13 @@ export const typicalProjects: Record<string, string[]> = {
     "Smart thermostat installation",
     "Wi-Fi coverage improvements for the whole home",
   ],
+  roofing: [
+    "New roof: trusses, battens, underlay and covering",
+    "Re-roof of an existing house, tile or sheeting",
+    "Leak tracing and repair around valleys, chimneys and flashing",
+    "Replacing storm-damaged tiles or sheets",
+    "Gutter and downpipe installation",
+  ],
 };
 
 export const getTypicalProjects = (service: Service): string[] =>
