@@ -3,7 +3,7 @@ import { SectionHeading } from "@/components/ui/SectionHeading";
 import { Reveal } from "@/components/ui/Reveal";
 import { StageScrubber, type Stage } from "@/components/progress/StageScrubber";
 import { StageCompare } from "@/components/progress/StageCompare";
-import { ToggleProjectCard } from "@/components/progress/ToggleProjectCard";
+import { CompareProjectCard } from "@/components/progress/CompareProjectCard";
 import { RoofStrip } from "@/components/progress/RoofStrip";
 import { images } from "@/lib/images";
 import { getProject } from "@/data/projects";
@@ -93,12 +93,12 @@ export function RoofingProgress() {
           <SectionHeading
             label="Work in this category"
             title="Work In This Category."
-            lead="Every card carries two frames from the job — hover on desktop, tap on mobile."
+            lead="Every card carries two frames from the job — drag to compare."
           />
           <div className="mt-12 grid gap-8 sm:grid-cols-2 lg:grid-cols-3">
             {gridProjects.map((project, i) => (
               <Reveal key={project.slug} delay={i * 0.08}>
-                <ToggleProjectCard
+                <CompareProjectCard
                   href={`/projects/${project.slug}`}
                   a={project.toggle.a}
                   altA={project.toggle.altA}

@@ -2,7 +2,7 @@ import type { Metadata } from "next";
 import { Container } from "@/components/ui/Container";
 import { Breadcrumbs } from "@/components/ui/Breadcrumbs";
 import { ProjectCard } from "@/components/ui/ProjectCard";
-import { ToggleProjectCard } from "@/components/progress/ToggleProjectCard";
+import { CompareProjectCard } from "@/components/progress/CompareProjectCard";
 import { CtaSection } from "@/components/home/CtaSection";
 import { projects } from "@/data/projects";
 
@@ -38,7 +38,7 @@ export default function ProjectsPage() {
           <div className="grid gap-10 sm:grid-cols-2">
             {projects.map((project) =>
               project.toggle ? (
-                <ToggleProjectCard
+                <CompareProjectCard
                   key={project.slug}
                   href={`/projects/${project.slug}`}
                   a={project.toggle.a}

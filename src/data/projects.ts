@@ -13,7 +13,7 @@ export type Project = {
   status: "in-progress" | "complete";
   /** cover image — grid fallback, OG image, related-project thumbnails */
   image: StaticImageData;
-  /** present when the project has a genuine two-frame pair for ToggleProjectCard */
+  /** present when the project has a genuine two-frame pair for CompareProjectCard */
   toggle?: {
     a: StaticImageData;
     altA: string;
@@ -55,7 +55,6 @@ export const projects: Project[] = [
       altA: "Purlins fixed across a tiled hip roof, ready for tiling",
       b: images.roof.compareTiled,
       altB: "The same hip roof with tiles bedded and pointed",
-      flagLabel: "Hover / tap",
     },
   },
   {
@@ -71,7 +70,6 @@ export const projects: Project[] = [
       altA: "Roof trusses erected and braced, ready for sheeting",
       b: images.roof.explainerCovering,
       altB: "The same roof with sheeting closed up and flashing sealed",
-      flagLabel: "Hover / tap",
     },
   },
   {
@@ -87,7 +85,6 @@ export const projects: Project[] = [
       altA: "Underlay and battens fixed across a re-roof, ready for tiling",
       b: images.roof.reroofTiled,
       altB: "The same re-roof with tiles loaded on the battens ready to lay",
-      flagLabel: "Hover / tap",
     },
   },
 ];

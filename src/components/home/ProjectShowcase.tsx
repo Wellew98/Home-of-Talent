@@ -4,14 +4,14 @@ import { Container } from "@/components/ui/Container";
 import { SectionHeading } from "@/components/ui/SectionHeading";
 import { Reveal } from "@/components/ui/Reveal";
 import { ProjectCard } from "@/components/ui/ProjectCard";
-import { ToggleProjectCard } from "@/components/progress/ToggleProjectCard";
+import { CompareProjectCard } from "@/components/progress/CompareProjectCard";
 import { projects } from "@/data/projects";
 
 /**
  * Project showcase — large editorial cards (master brief s.13).
- * Projects with a genuine two-frame pair use the toggle card; the
- * in-progress double-storey build uses the plain card with its
- * "On site now" badge.
+ * Projects with a genuine two-frame pair use the drag-to-compare card
+ * (works on touch, unlike hover); the in-progress double-storey build uses
+ * the plain card with its "On site now" badge.
  */
 export function ProjectShowcase() {
   return (
@@ -37,7 +37,7 @@ export function ProjectShowcase() {
           {projects.map((project, i) => (
             <Reveal key={project.slug} delay={(i % 2) * 0.08}>
               {project.toggle ? (
-                <ToggleProjectCard
+                <CompareProjectCard
                   href={`/projects/${project.slug}`}
                   a={project.toggle.a}
                   altA={project.toggle.altA}
