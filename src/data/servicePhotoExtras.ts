@@ -11,8 +11,8 @@ export const servicePhotoExtras: Record<string, StaticImageData[]> = {
   "exterior-maintenance": [images.service.exterior, images.service.seasonal],
   "garage-storage": [images.service.garage, images.service.repairs],
   "outdoor-living": [images.project.outdoor, images.service.outdoor],
-  "repairs-maintenance": [images.service.repairs, images.tradesperson],
+  "repairs-maintenance": [images.service.repairs, images.roofer],
   "seasonal-maintenance": [images.service.seasonal, images.service.exterior],
-  "smart-home": [images.service.smarthome, images.tradesperson],
+  "smart-home": [images.service.smarthome, images.roofer],
   roofing: [images.roof.trusses, images.roof.sheeting],
 };

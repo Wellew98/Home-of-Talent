@@ -11,6 +11,8 @@ export type Service = {
   image: StaticImageData;
   /** true once this service is illustrated with real Home of Talent photos */
   realPhotos?: boolean;
+  /** true to render the progress-component composition instead of the plain template */
+  richLayout?: boolean;
   features: string[];
   faqs: { q: string; a: string }[];
   seoTitle: string;
@@ -285,6 +287,7 @@ export const services: Service[] = [
       "A roof takes the worst of the Johannesburg weather. We handle roofing from the timber up \u2014 truss erection, battens and underlay, sheeting and tiling \u2014 as well as the repair work that keeps an existing roof watertight through summer storm season.",
     image: images.service.roofing,
     realPhotos: true,
+    richLayout: true,
     features: [
       "Timber truss erection",
       "Battens, underlay and sisalation",

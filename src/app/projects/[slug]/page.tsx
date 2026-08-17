@@ -7,6 +7,7 @@ import { Container } from "@/components/ui/Container";
 import { Breadcrumbs } from "@/components/ui/Breadcrumbs";
 import { Button } from "@/components/ui/Button";
 import { CtaSection } from "@/components/home/CtaSection";
+import { StageScrubber } from "@/components/progress/StageScrubber";
 import { projects, type Project } from "@/data/projects";
 
 export const dynamicParams = false;
@@ -64,9 +65,9 @@ export default async function ProjectDetailPage({
                 <MapPin className="h-4 w-4 text-copper" aria-hidden />
                 {project.location}
               </p>
-              {project.placeholder && (
-                <p className="mt-6 inline-block rounded-[2px] border border-ondark/20 px-4 py-2 text-[12px] font-semibold uppercase tracking-[0.12em] text-ondark-muted">
-                  Example project — placeholder. Real projects are being added.
+              {project.status === "in-progress" && (
+                <p className="mt-6 inline-block rounded-[2px] border border-copper/40 px-4 py-2 text-[12px] font-semibold uppercase tracking-[0.12em] text-copper">
+                  On site now — documented in progress, not yet complete.
                 </p>
               )}
               <div className="mt-8">
@@ -75,16 +76,20 @@ export default async function ProjectDetailPage({
                 </Button>
               </div>
             </div>
-            <div className="relative aspect-[16/10] overflow-hidden rounded-[2px] border border-ondark/15">
-              <Image
-                src={project.image}
-                alt={`${project.name} — ${project.category}`}
-                fill
-                priority
-                sizes="(min-width: 1024px) 55vw, 100vw"
-                className="object-cover"
-              />
-            </div>
+            {project.stages ? (
+              <StageScrubber stages={project.stages} onDark />
+            ) : (
+              <div className="relative aspect-[16/10] overflow-hidden rounded-[2px] border border-ondark/15">
+                <Image
+                  src={project.image}
+                  alt={`${project.name} — ${project.category}`}
+                  fill
+                  priority
+                  sizes="(min-width: 1024px) 55vw, 100vw"
+                  className="object-cover"
+                />
+              </div>
+            )}
           </div>
         </Container>
       </section>
@@ -103,10 +108,9 @@ export default async function ProjectDetailPage({
               {project.shortDescription}
             </p>
             <p className="mt-5 text-[15px] leading-relaxed text-muted">
-              This is an example project entry used to shape the portfolio
-              layout. When Home of Talent supplies real project details —
-              scope, timeline, materials and photos — each project page will
-              tell that full story here.
+              {project.status === "in-progress"
+                ? "This build is still on site — the photographs stop at the poured suspended slab. This page will be updated as the work continues."
+                : "These photographs are from the job itself. Details beyond what they show — exact timeline, full material list — are being confirmed before they're added to this page."}
             </p>
           </div>
         </Container>

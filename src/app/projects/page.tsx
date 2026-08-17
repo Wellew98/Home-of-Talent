@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import { Container } from "@/components/ui/Container";
 import { Breadcrumbs } from "@/components/ui/Breadcrumbs";
 import { ProjectCard } from "@/components/ui/ProjectCard";
+import { ToggleProjectCard } from "@/components/progress/ToggleProjectCard";
 import { CtaSection } from "@/components/home/CtaSection";
 import { projects } from "@/data/projects";
 
@@ -25,9 +26,8 @@ export default function ProjectsPage() {
               Recent Work
             </h1>
             <p className="mt-5 text-[17px] leading-relaxed text-ondark-muted">
-              A growing portfolio of projects across greater Johannesburg.
-              Example projects shown — real Home of Talent project galleries
-              are being added.
+              A growing portfolio of Home of Talent projects. Locations are
+              being confirmed as the gallery grows.
             </p>
           </div>
         </Container>
@@ -36,9 +36,24 @@ export default function ProjectsPage() {
       <section className="bg-offwhite py-20 lg:py-28">
         <Container>
           <div className="grid gap-10 sm:grid-cols-2">
-            {projects.map((project) => (
-              <ProjectCard key={project.slug} project={project} />
-            ))}
+            {projects.map((project) =>
+              project.toggle ? (
+                <ToggleProjectCard
+                  key={project.slug}
+                  href={`/projects/${project.slug}`}
+                  a={project.toggle.a}
+                  altA={project.toggle.altA}
+                  b={project.toggle.b}
+                  altB={project.toggle.altB}
+                  flagLabel={project.toggle.flagLabel}
+                  category={project.category}
+                  title={project.name}
+                  meta={`${project.shortDescription} · ${project.location}`}
+                />
+              ) : (
+                <ProjectCard key={project.slug} project={project} />
+              ),
+            )}
           </div>
         </Container>
       </section>

@@ -21,9 +21,9 @@ export function ProjectCard({ project }: { project: Project }) {
           <span className="absolute left-4 top-4 rounded-[2px] bg-charcoal/85 px-3 py-1.5 text-[11px] font-semibold uppercase tracking-[0.1em] text-ondark">
             {project.category}
           </span>
-          {project.placeholder && (
-            <span className="absolute right-4 top-4 rounded-[2px] bg-offwhite/90 px-3 py-1.5 text-[11px] font-semibold uppercase tracking-[0.1em] text-muted">
-              Example
+          {project.status === "in-progress" && (
+            <span className="absolute right-4 top-4 rounded-[2px] bg-copper px-3 py-1.5 text-[11px] font-semibold uppercase tracking-[0.1em] text-white">
+              On site now
             </span>
           )}
         </div>

@@ -4,11 +4,14 @@ import { Container } from "@/components/ui/Container";
 import { SectionHeading } from "@/components/ui/SectionHeading";
 import { Reveal } from "@/components/ui/Reveal";
 import { ProjectCard } from "@/components/ui/ProjectCard";
+import { ToggleProjectCard } from "@/components/progress/ToggleProjectCard";
 import { projects } from "@/data/projects";
 
 /**
  * Project showcase — large editorial cards (master brief s.13).
- * Placeholder projects are clearly disclosed.
+ * Projects with a genuine two-frame pair use the toggle card; the
+ * in-progress double-storey build uses the plain card with its
+ * "On site now" badge.
  */
 export function ProjectShowcase() {
   return (
@@ -19,7 +22,7 @@ export function ProjectShowcase() {
             number="04"
             label="Projects"
             title="Recent Work"
-            lead="A selection of recent projects across Johannesburg. Example projects shown — the full portfolio is being added."
+            lead="A selection of recent Home of Talent projects. Locations are being confirmed and the full portfolio is still growing."
           />
           <Link
             href="/projects"
@@ -33,7 +36,21 @@ export function ProjectShowcase() {
         <div className="mt-16 grid gap-10 sm:grid-cols-2">
           {projects.map((project, i) => (
             <Reveal key={project.slug} delay={(i % 2) * 0.08}>
-              <ProjectCard project={project} />
+              {project.toggle ? (
+                <ToggleProjectCard
+                  href={`/projects/${project.slug}`}
+                  a={project.toggle.a}
+                  altA={project.toggle.altA}
+                  b={project.toggle.b}
+                  altB={project.toggle.altB}
+                  flagLabel={project.toggle.flagLabel}
+                  category={project.category}
+                  title={project.name}
+                  meta={`${project.shortDescription} · ${project.location}`}
+                />
+              ) : (
+                <ProjectCard project={project} />
+              )}
             </Reveal>
           ))}
         </div>

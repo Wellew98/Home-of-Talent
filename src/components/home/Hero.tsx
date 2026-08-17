@@ -13,8 +13,8 @@ export function Hero() {
       {/* Background photo + dark overlay */}
       <div className="absolute inset-0">
         <Image
-          src={images.hero}
-          alt="Modern renovated home interior in Johannesburg"
+          src={images.roofer}
+          alt="Home of Talent carpenter setting roof trusses on site"
           fill
           priority
           sizes="100vw"

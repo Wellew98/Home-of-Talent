@@ -5,6 +5,7 @@ import { homepageFaqs } from "@/data/faqs";
 import { servicePhotoExtras } from "@/data/servicePhotoExtras";
 import { ServiceHero } from "@/components/services/ServiceHero";
 import { ServiceDetails, ServicePhotos } from "@/components/services/ServiceSections";
+import { RoofingProgress } from "@/components/services/RoofingProgress";
 import { ProcessSteps } from "@/components/ui/ProcessSteps";
 import { Container } from "@/components/ui/Container";
 import { FaqList } from "@/components/ui/FaqList";
@@ -63,7 +64,11 @@ export default async function ServicePage({
       />
       <ServiceHero service={service} />
       <ServiceDetails service={service} />
-      <ServicePhotos service={service} extras={servicePhotoExtras[service.slug] ?? []} />
+      {service.richLayout ? (
+        <RoofingProgress />
+      ) : (
+        <ServicePhotos service={service} extras={servicePhotoExtras[service.slug] ?? []} />
+      )}
       <ProcessSteps
         label="Process"
         title="How Your Project Runs"

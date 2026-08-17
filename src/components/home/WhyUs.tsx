@@ -66,8 +66,8 @@ export function WhyUs() {
           <Reveal delay={0.1} className="relative hidden lg:block">
             <div className="relative aspect-[3/4] overflow-hidden rounded-[2px] border border-ondark/15">
               <Image
-                src={images.tradesperson}
-                alt="Craftsman working on a home project"
+                src={images.roofer}
+                alt="Home of Talent roofer working on site"
                 fill
                 sizes="(min-width: 1024px) 40vw"
                 className="object-cover"
